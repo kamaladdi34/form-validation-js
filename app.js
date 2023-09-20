@@ -8,6 +8,12 @@ const passwordInput = document.querySelector('input#password');
 const passwordInputInfo = document.querySelector('input#password + span');
 const passwordConfirmationInput = document.querySelector('input#password-confirmation');
 const passwordConfirmationInputInfo = document.querySelector('input#password-confirmation + span');
+const formSubmitButton = document.querySelector('.sign-up-form > button');
+formSubmitButton.addEventListener('click',(event)=>{
+    event.preventDefault();
+    let result = checkFormValidity();
+    console.log(result);
+})
 let emailRules = {
     validMessage:'Valid email',
     rules:[
@@ -91,7 +97,29 @@ passwordConfirmationInput.addEventListener('change',(event)=>{
         reportValidity(passwordInput, passwordInputInfo,passwordRules);
     }
 })
-const reportValidity = (input, inputInfo, rules)=>{
+const formInputs = [
+    {
+        input: emailInput,
+        rules: emailRules
+    },
+    {
+        input: countryInput,
+        rules: countryRules
+    },
+    {
+        input: zipCodeInput,
+        rules: zipCodeRules
+    },
+    {
+        input: passwordInput,
+        rules: passwordRules
+    },
+    {
+        input: passwordConfirmationInput,
+        rules: passwordRules
+    }
+]
+const checkValidity = (input, rules) =>{
     let valid = true;
     let message = rules.validMessage;
     for (let i = 0; i < rules.rules.length; i++) {
@@ -101,7 +129,11 @@ const reportValidity = (input, inputInfo, rules)=>{
             break;
         }
     }
-    displayValidity(input, inputInfo, message, valid)
+    return {isValid: valid, message: message};
+}
+const reportValidity = (input, inputInfo, rules)=>{
+    let result = checkValidity(input, rules);
+    displayValidity(input, inputInfo, result.message, result.isValid)
 
 }
 const displayValidity = (input, inputInfo, message, isValid)=>{
@@ -117,4 +149,17 @@ const displayValidity = (input, inputInfo, message, isValid)=>{
         inputInfo.classList.remove('valid-info');
     }
     inputInfo.innerText = message;
+}
+const checkFormValidity = ()=>{
+    let valid = true;
+    let message = 'All your informations is correct!'
+    for (let i = 0; i < formInputs.length; i++) {
+        let result = checkValidity(formInputs[i].input, formInputs[i].rules);
+        if(!result.isValid){
+            message = result.message;
+            valid = false;
+            break;
+        }
+    }
+    return {isValid: valid, message: message};
 }
