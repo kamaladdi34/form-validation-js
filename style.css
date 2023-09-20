@@ -88,7 +88,8 @@ body{
     flex-direction: column;
 }
 .sign-up-form button:hover{
-    background-color: #c43aeb;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     cursor: pointer;
 }
 .sign-up-form input.invalid{

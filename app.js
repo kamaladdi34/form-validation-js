@@ -28,7 +28,7 @@ const reportValidity = (input, inputInfo, validMessage, invalidMessage)=>{
         input.classList.add('valid');
         input.classList.remove('invalid');
         inputInfo.innerText = validMessage;
-        inputInfo.classList.remove('invalid-info');
+        inputInfo.classList.remove('invalid-info');``
         inputInfo.classList.add('valid-info');
     }else{
         input.classList.add('invalid');
