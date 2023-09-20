@@ -113,7 +113,7 @@ body{
     color: red;
 }
 .pop-up{
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform:  translate(-50%,-50%);
@@ -130,7 +130,7 @@ body{
     transition: 0.2s;
 }
 .hidden{
-    display: none;
+    transform: translate(-50%,200%);
 }
 .header{
     display: flex;
