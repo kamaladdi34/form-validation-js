@@ -149,11 +149,13 @@ const displayValidity = (input, inputInfo, message, isValid)=>{
     if(isValid){
         input.classList.add('valid');
         input.classList.remove('invalid');
+        input.setCustomValidity('');
         inputInfo.classList.remove('invalid-info');
         inputInfo.classList.add('valid-info');
     }else{
         input.classList.add('invalid');
         input.classList.remove('valid');
+        input.setCustomValidity(message);
         inputInfo.classList.add('invalid-info');
         inputInfo.classList.remove('valid-info');
     }
