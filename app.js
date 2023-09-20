@@ -16,6 +16,14 @@ let emailRules = {
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
               ),
             invalidMessage : "Invalid email"
+        },
+        {
+            check: (value)=> value.match(/burger/),
+            invalidMessage : "Email must contain 'burger' 🍔"
+        },
+        {
+            check: (value)=> value.match(/\.TOP$/),
+            invalidMessage : "Email must end with '.TOP'"
         }
     ]
 }
@@ -59,7 +67,7 @@ let passwordRules = {
         },
         {
             check: (value)=> value.match(/banana/),
-            invalidMessage : "Password must contain 'banana'"
+            invalidMessage : "Password must contain 'banana' 🍌"
         },
         {
             check: (value)=> {
