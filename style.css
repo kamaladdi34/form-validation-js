@@ -6,29 +6,43 @@
 }
 body{
     background-color: #000000;
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.background-image{
+    height: 100svh;
+    width: 100svw;
+    position: absolute;
+    background-image: url('wallpaper.avif');
+    background-size: cover;
+    z-index: -1;
 }
 .sign-up-form{
     display: flex;
     flex-direction: column;
     max-width: 400px;
-    margin: auto;
     background-color: #141419;
-    margin-top: 25px;
     padding: 25px;
     border-radius: 25px;
     border: 1px solid rgb(31, 31, 31);
 }
 .sign-up-form span{
-    padding-bottom: 20px;
-    font-size: 14px;
+    padding-top: 3px;
+    padding-bottom: 25px;
+    font-size: 12px;
+    height: 14px;
 }
 .sign-up-form label{
     padding-bottom: 6px ;
 }
 .sign-up-form button{
-    background-color: #a82ee5;
+    background-color: #008cff;
     border: none;
     transition: 0.2s;
+    margin-top: 20px;
 }
 .sign-up-form input{
     background-color: #292933;
@@ -48,10 +62,10 @@ body{
     padding-left: 12px;
 }
 .sign-up-form input:hover{
-    border: 1px solid #494949;
+    outline: 1px solid #494949;
 }
-.sign-up-form input:active{
-    border: 1px solid #a82ee5;
+.sign-up-form input:active, .sign-up-form input:focus{
+    outline: 1px solid #008cff;
 }
 .sign-up-form label, .sign-up-form .info{
     font-size: 14px;
@@ -76,4 +90,24 @@ body{
 .sign-up-form button:hover{
     background-color: #c43aeb;
     cursor: pointer;
+}
+.sign-up-form input.invalid{
+    background-color: rgb(24, 0, 0);
+    outline: 1px solid #b10000;
+}
+.sign-up-form input.invalid:active, .sign-up-form input.invalid:focus{
+    outline: 1px solid #b10000;
+}
+.sign-up-form input.valid{
+    background-color: rgb(0, 13, 20);
+    outline: 1px solid #006eff;
+}
+.sign-up-form input.valid:active, .sign-up-form input.valid:focus{
+    outline: 1px solid #006eff;
+}
+.valid-info{
+    color: #006eff;
+}
+.invalid-info{
+    color: red;
 }
