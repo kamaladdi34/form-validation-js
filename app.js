@@ -9,10 +9,19 @@ const passwordInputInfo = document.querySelector('input#password + span');
 const passwordConfirmationInput = document.querySelector('input#password-confirmation');
 const passwordConfirmationInputInfo = document.querySelector('input#password-confirmation + span');
 const formSubmitButton = document.querySelector('.sign-up-form > button');
+const popUp = document.querySelector('.pop-up');
+const popUpTitle = document.querySelector('.pop-up .pop-up-title');
+const popUpMessage = document.querySelector('.pop-up .pop-up-message');
+const popUpCloseButton = document.querySelector('.pop-up .close');
+popUpCloseButton.addEventListener('click',()=>{
+    popUp.classList.add('hidden');
+})
 formSubmitButton.addEventListener('click',(event)=>{
     event.preventDefault();
     let result = checkFormValidity();
-    console.log(result);
+    popUp.classList.remove('hidden');
+    popUpTitle.innerText = result.isValid? '😲 You signed up!':'🤓☝️ You missed something!';
+    popUpMessage.innerText = result.message;
 })
 let emailRules = {
     validMessage:'Valid email',
@@ -152,7 +161,7 @@ const displayValidity = (input, inputInfo, message, isValid)=>{
 }
 const checkFormValidity = ()=>{
     let valid = true;
-    let message = 'All your informations is correct!'
+    let message = '🎉 All your informations is correct!'
     for (let i = 0; i < formInputs.length; i++) {
         let result = checkValidity(formInputs[i].input, formInputs[i].rules);
         if(!result.isValid){

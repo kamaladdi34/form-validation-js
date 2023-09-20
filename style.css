@@ -112,3 +112,41 @@ body{
 .invalid-info{
     color: red;
 }
+.pop-up{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%,-50%);
+    width: 500px;
+    height: 200px;
+    background-color: #141419;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 20px;
+    transition: 0.2s;
+}
+.hidden{
+    transform: translate(-50%,500px);
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+.close{
+    border: none;
+    border-radius: 100px;
+    background-color: red;
+    color: #2b0000;
+    height: 25px;
+    width: 25px;
+}
+.pop-up .pop-up-message{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
