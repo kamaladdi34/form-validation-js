@@ -16,7 +16,7 @@ body{
     height: 100svh;
     width: 100svw;
     position: absolute;
-    background-image: url('wallpaper.avif');
+    background-color: black;
     background-size: cover;
     z-index: -1;
 }
